@@ -259,7 +259,7 @@ function registerRoutes() {
   route('/planner', requireAuthOrRedirect(() => mount(renderPlanner, { title: 'Study Planner' })));
   route('/analytics', requireAuthOrRedirect(() => mount(renderAnalytics, { title: 'Progress Analytics' })));
   route('/settings', requireAuthOrRedirect(() => mount(renderSettings, { title: 'Settings' })));
-  route('/billing', requireAuthOrRedirect(() => mount(renderBilling, { title: 'Subscription & Billing' })));
+  route('/billing', requireAuthOrRedirect((ctx) => mount((opts) => renderBilling({ ...ctx, ...opts }), { title: 'Subscription & Billing' })));
 
   setNotFound(() => {
     renderPublic(h('div', { class: 'public' }, [
