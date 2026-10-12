@@ -73,8 +73,8 @@ router.post('/billing/checkout', asyncHandler(async (req, res) => {
       customer_email: req.user.email,
       metadata: { userId, interval },
       subscription_data: { metadata: { userId, interval } },
-     success_url: \${base}/#/billing?session_id={CHECKOUT_SESSION_ID}&status=success`,`
-     cancel_url: \${base}/#/billing?status=cancelled`,`
+            success_url: `${base}/#/billing?session_id={CHECKOUT_SESSION_ID}&status=success`,
+            cancel_url: `${base}/#/billing?status=cancelled`,
       allow_promotion_codes: true,
     });
     return res.json({ mode: 'checkout', url: session.url, interval });
@@ -207,7 +207,7 @@ router.post('/billing/portal', asyncHandler(async (req, res) => {
   const base = process.env.APP_BASE_URL || `${req.protocol}://${req.get('host')}`;
   const portal = await stripe.billingPortal.sessions.create({
     customer: sub.stripe_customer_id,
-    return_url: \${base}/#/billing`,`
+        return_url: `${base}/#/billing`,
   });
   res.json({ url: portal.url });
 }));
