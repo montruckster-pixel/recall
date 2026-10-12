@@ -3,7 +3,7 @@ import { api } from '../api.js';
 import { navigate } from '../router.js';
 import { getState, setState } from '../store.js';
 
-export async function renderBilling({ query, setMeta }) {
+export async function renderBilling({ query = {}, setMeta }) {
   let data = await api.get('/api/billing');
   const { config, entitlements } = data;
 
