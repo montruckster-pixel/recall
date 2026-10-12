@@ -10,7 +10,7 @@ const RATINGS = [
   { value: 4, key: '4', label: 'Easy', hint: 'Too easy', cls: 'accent' },
 ];
 
-export async function renderStudy({ params, query, setMeta }) {
+export async function renderStudy({ params = {}, query = {}, setMeta }) {
   const setId = params.setId || query.setId || null;
   const queue = await api.get(`/api/study/queue${qs({ setId, limit: 60 })}`);
 
