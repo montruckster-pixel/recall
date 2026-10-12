@@ -247,7 +247,7 @@ function registerRoutes() {
   route('/dashboard', requireAuthOrRedirect(() => mount(renderDashboard, { title: 'Dashboard' })));
   route('/sets', requireAuthOrRedirect(() => mount(renderSets, { title: 'My Study Sets' })));
   route('/sets/:id', requireAuthOrRedirect((ctx) => mount((opts) => renderSetDetail({ ...ctx, ...opts }), { title: 'Study set' })));
-  route('/study', requireAuthOrRedirect(() => mount((opts) => renderStudy({ ...opts }), { title: 'Flashcard review' })));
+  route('/study', requireAuthOrRedirect((ctx) => mount((opts) => renderStudy({ ...ctx, ...opts }), { title: 'Flashcard review' })));
   route('/study/:setId', requireAuthOrRedirect((ctx) => mount((opts) => renderStudy({ ...ctx, ...opts }), { title: 'Flashcard review' })));
   route('/materials', requireAuthOrRedirect(() => mount(renderMaterials, { title: 'Upload Materials' })));
   route('/materials/:id', requireAuthOrRedirect((ctx) => mount((opts) => renderMaterialDetail({ ...ctx, ...opts }), { title: 'Material' })));
