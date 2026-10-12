@@ -73,7 +73,7 @@ router.post('/billing/checkout', asyncHandler(async (req, res) => {
       customer_email: req.user.email,
       metadata: { userId, interval },
       subscription_data: { metadata: { userId, interval } },
-      success_url: `${base}/billing?session_id={CHECKOUT_SESSION_ID}&status=success`,
+     success_url: \${base}/#/billing?session_id={CHECKOUT_SESSION_ID}&status=success`,`
       cancel_url: `${base}/pricing?status=cancelled`,
       allow_promotion_codes: true,
     });
