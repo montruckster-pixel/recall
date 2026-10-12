@@ -1,0 +1,25 @@
+{
+  "name": "recall",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Recall — AI-powered certification study platform. Upload materials, generate flashcards and practice exams, and study with real spaced repetition.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "seed": "node scripts/seed-demo.js",
+    "smoke": "node scripts/smoke-test.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "mammoth": "^1.8.0",
+    "multer": "^2.0.0",
+    "nodemailer": "^6.9.16",
+    "stripe": "^17.5.0"
+  }
+}
